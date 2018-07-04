@@ -1,3 +1,11 @@
 <p>
   testRoute works!{{params}}
+  <br/>
+  {{childCase}}
+
+  <br/>
+  service的数据itemIndex{{authService.itemIndex}}
 </p>
+<ul>
+  <li *ngFor="let item of content">id:{{item.id}}=======name:{{item.name}}</li>
+</ul>

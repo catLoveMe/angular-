@@ -1,17 +1,25 @@
 import {Injectable , EventEmitter } from '@angular/core'
 import {CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router'
 
+// import { Subject } from 'rxjs/Subject';
+
 //装饰器,依赖注入,服务中定义方法，
 @Injectable()
 export class AuthService {
 
   public eventEmit: any;
+  itemIndex:number = 12;//
+  changeInService:string = "服务里面的change数据"
+  change:EventEmitter<number>;//在服务中发射
+
+
 
     constructor (
         private router: Router
     ){
           // 定义发射事件
           this.eventEmit = new EventEmitter();
+          this.change = new EventEmitter();
     }
 
     public redirectUrl: string

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderModule } from '../header/header.module';
 import { Tab1Component } from './tab1/tab1.component';
 import { Tab2Component } from './tab2/tab2.component';
+import { HomeRoutingModule } from './home-routing.module';
 
 // 在组件里面使用子组件时，只需要引入并声明declaration子组件,属于本module的组件和指令或者管道
 // exports导出才能在其他模块下面进行访问
@@ -13,11 +14,12 @@ import { Tab2Component } from './tab2/tab2.component';
   imports: [
     CommonModule,
     HeaderModule,
+    HomeRoutingModule
   ],
   declarations:[
     Tab1Component,
     Tab2Component
-  ],
+  ],  
   exports:[   
   ]
   
