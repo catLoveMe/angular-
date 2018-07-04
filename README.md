@@ -30,11 +30,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ##参数传递 父传子 儿子input 并在组件上绑定对应属性或数据
 
-## 子传父 儿子Output eventEmitter发射广播 emit触发该事件
+##子传父 儿子Output eventEmitter发射广播 emit触发该事件
 ##儿子获取父亲的实例 引入父组件 引入Host forwardRef Inject 将父组件装饰成具有ref属性的宿主，提供给儿子
-## 父亲获取儿子的实例 @viewChild 初始化依赖儿子组件
-## service 更改服务中的数据，其他引入服务的都会更改
+##父亲获取儿子的实例 @viewChild 初始化依赖儿子组件
+##service 更改服务中的数据，其他引入服务的都会更改
 
-## EventEmitter 发射器 service全局发射，所有引入service的组件都可接受到数据
+##EventEmitter 发射器 service全局发射，所有引入service的组件都可接受到数据
 
-## 订阅
+##订阅
