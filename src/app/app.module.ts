@@ -12,7 +12,7 @@ import { ParamsComponent } from './params/params.component';
 import { AuthService } from './auth/auth.service';
 
 
-
+ 
 @NgModule({
    declarations: [
       //可声明对象表，属于本模块的组件指令管道\n

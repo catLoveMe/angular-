@@ -8,11 +8,12 @@ import { Tab2Component } from "./home/tab2/tab2.component";
 import { ProDetailComponent } from "./product/pro-detail/pro-detail.component";
 import { TestRouteComponent } from "./product/testRoute/testRoute.component";
 import { BrowserModule } from "@angular/platform-browser";
+import { ParamsComponent } from "./params/params.component";
 /* const 常量，不能更改值，但在{}时，能更改值，是因为const指向的地址相同，当{}里面的属性更改时，地址没有更改，还是可以使用*/ 
 const routes : Routes = [
     {
         path:'',
-        redirectTo:'/user',
+        redirectTo:'home',
         pathMatch:'full'
     },
     {
@@ -21,7 +22,7 @@ const routes : Routes = [
         children:[
             {
                 path:'',
-                redirectTo:'/tab1',
+                redirectTo:'tab1',
                 pathMatch:'full'
             },
             {
@@ -47,7 +48,14 @@ const routes : Routes = [
         path:'testRoute',
         component: TestRouteComponent
       },
-    //   {path: 'user', loadChildren: 'app/user/user.module#UserModule'}
+      {
+        path:'params',
+        component: ParamsComponent
+      },
+    //   {
+    //       path: 'user', 
+    //       loadChildren: 'app/user/user.module#UserModule'
+    // }
 ]
 
 /*模块,由跟模块与各种特性模块构成,组件定义视图，使用服务,组件和服务都是简单的类，使用类的装饰器来标出其类型*/
