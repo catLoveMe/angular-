@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from "./home/home.component";
+
 import { ProductComponent } from "./product/product.component";
 import { Tab1Component } from "./home/tab1/tab1.component";
 import { Tab2Component } from "./home/tab2/tab2.component";
@@ -9,7 +9,15 @@ import { ProDetailComponent } from "./product/pro-detail/pro-detail.component";
 import { TestRouteComponent } from "./product/testRoute/testRoute.component";
 import { BrowserModule } from "@angular/platform-browser";
 import { ParamsComponent } from "./params/params.component";
-/* const 常量，不能更改值，但在{}时，能更改值，是因为const指向的地址相同，当{}里面的属性更改时，地址没有更改，还是可以使用*/ 
+import {ParamsDetailComponent} from "./params/params-detail/params-detail.component";
+import {HomeComponent} from "./home/home.component";
+import {LoginGuard} from "./guard/login.guard";
+import {UnSaveGuard} from "./guard/unSave.guard";
+import {BingdingComponent} from "./bingding/bingding.component";
+// import {ResolveGuard} from "./guard/resolve.guard";
+
+/* const 常量，不能更改值，但在{}时，能更改值，是因为const指向的地址相同，当{}里面的属性更改时，地址没有更改，还是可以使用*/
+
 const routes : Routes = [
     {
         path:'',
@@ -31,18 +39,24 @@ const routes : Routes = [
             },
             {
                 path:'tab2',
-                component:Tab2Component
+                component:Tab2Component,
+                outlet:'aux'
             }
         ]
     },
     {
         path:'product',
         component:ProductComponent,
-        
+
+        // canDeactivate:[UnSaveGuard],
+        resolve:{
+          // product:ResolveGuard
+        }
     },
     {
         path:'detail/:id',
-        component: ProDetailComponent
+        component: ProDetailComponent,
+      canActivate:[LoginGuard],
       },
       {
         path:'testRoute',
@@ -50,10 +64,25 @@ const routes : Routes = [
       },
       {
         path:'params',
-        component: ParamsComponent
+        component: ParamsComponent,
       },
+      {
+        path:'paramsDetails/:item',
+        component: ParamsDetailComponent,
+      },
+      {
+        path:"bind",
+        component:BingdingComponent
+      },
+      {
+        path:"**",
+        component:HomeComponent
+
+      },
+
+
     //   {
-    //       path: 'user', 
+    //       path: 'user',
     //       loadChildren: 'app/user/user.module#UserModule'
     // }
 ]
@@ -68,5 +97,5 @@ const routes : Routes = [
 })
 
 export class AppRouter {
-  
+
 }

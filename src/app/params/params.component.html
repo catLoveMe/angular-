@@ -1,3 +1,18 @@
-<p>
-  params works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let item of arr">
+      <div class="contentBox">
+        <a [routerLink] = '["/paramsDetails",item.rating]' [queryParams] = '{Pid:12}'>
+          <h5 [ngClass]="{title: item.rating==2.5}">{{item.name}}</h5>
+        </a>
+        <img [src]="item.imgsrc" alt="">
+        <div>
+          <p>评分{{item.rating}}</p>
+          <app-par-child [ratingChild] = 'item.rating'></app-par-child>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--路由传参3种方式 -->

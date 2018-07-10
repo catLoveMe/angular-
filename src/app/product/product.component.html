@@ -4,10 +4,10 @@
 <h2>父组件service中的itemINdex{{authService.itemIndex}}</h2>
 <h2>{{example}}</h2>
     <a *ngFor="let item of arr" [routerLink] = "['/detail',item.id]">
-      <h1>{{item.name}}</h1>
+      <h1 [class.active] = "item.stars">{{item.name}}</h1>
     </a>
 
-    <button (click) = 'navigate()'>navigate传参方式</button>
+    <button (click) = 'navigate()' [hidden] = '!isShow'>navigate传参方式</button>
     <p>获取儿子传过来的参数：{{mess}}</p>
 
     <app-testRoute [content] = 'arr' (changeIndex) = 'getChildIndex($event)'></app-testRoute>

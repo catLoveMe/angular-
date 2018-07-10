@@ -16,7 +16,15 @@ export class ProDetailComponent implements OnInit {
     this.activatedRoute.params.subscribe((Params : Params) =>{
       this.detailId = Params['id'];
     })
-    
   }
 
+}
+
+export class Product{
+  constructor(
+    public id:number,
+    public name:string
+  ){
+
+  }
 }

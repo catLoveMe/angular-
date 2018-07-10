@@ -1,0 +1,26 @@
+<h1>数据绑定</h1>
+<input type="text" (input)="getInputVal($event)">
+
+<!--属性绑定与插值表达式绑定结果相同-->
+<img [src] = 'imgsrc'>
+<!--<img src="{{imgsrc}}" alt="">-->
+<!--绑定的class 如果为css类名，转化为字符串类型的，否则会识别成表达式或者变量-->
+<h5 [class] = "'active'">这是测试class绑定的</h5>
+<p [ngClass]="{'active': expression,'unActive':exper}">这是ngclass的数据</p>
+<button [ngStyle]="{'font-size': expression ? '15px':'18px'}">ngstyle</button>
+<button [style.color] = " exper ? 'red':'yellow'">style.color</button>
+<table>
+  <thead>
+     <tr>
+       <td [attr.colspan] = "'4'">这是表头</td>
+     </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>

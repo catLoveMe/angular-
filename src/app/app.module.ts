@@ -10,14 +10,27 @@ import { ProductModule } from './product/product.module';
 import { UserModule } from './user/user.module';
 import { ParamsComponent } from './params/params.component';
 import { AuthService } from './auth/auth.service';
+import { ParChildComponent } from './params/par-child/par-child.component';
+import { ParamsDetailComponent } from './params/params-detail/params-detail.component';
+import { BingdingComponent } from './bingding/bingding.component';
+import { ProOneComponent } from './DI/pro-one/pro-one.component';
+import { ProTowComponent } from './DI/pro-tow/pro-tow.component';
+import {ProductService} from "./DI/shared/product.service";
+import {logger} from "codelyzer/util/logger";
+import {LoggerService} from "./DI/shared/logger.service";
 
 
- 
+
+
 @NgModule({
    declarations: [
       //可声明对象表，属于本模块的组件指令管道\n
       AppComponent,
-      HomeComponent,
+      ParChildComponent,
+      ParamsDetailComponent,
+      BingdingComponent,
+      ProOneComponent,
+      ProTowComponent ,HomeComponent,
       ParamsComponent
    ],
    imports: [
@@ -29,7 +42,21 @@ import { AuthService } from './auth/auth.service';
       UserModule
    ],
    providers: [
-       AuthService
+       AuthService,
+     {
+       provide:ProductService,
+       useFactory:(logger:LoggerService,env) => {
+        if(env.isDev){
+          return new ProductService(logger)
+        }
+       },
+       deps:[LoggerService,'APP_CONTACT']//声明即将在useFactory中定义的参数
+     },
+     LoggerService,
+     {
+       provide:'APP_CONTACT',
+       useValue:{isDev:false}
+     }
    ],
    bootstrap: [
     AppComponent
