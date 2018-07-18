@@ -1,0 +1,11 @@
+<p>
+ 响应式编程demo
+</p>
+<input type="text" (keyup)="onkey($event)" >
+<!--模板声明变量加# 使用时不用加#-->
+<input type="text" #myFile (keyup)="onkeyup(myFile.value)">
+<input type="text" [formControl] = 'seachInout'>
+<!--number 小数点前面的数字保留几位，小数点后面的2-2代表保留两位数字最少2位小数-->
+<p>圆周率是{{p1 | number:'1.2-2'}}</p>
+<p>试试自己写得管道{{size | mulitple:2}}</p>
+

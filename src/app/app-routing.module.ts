@@ -14,10 +14,13 @@ import {HomeComponent} from "./home/home.component";
 import {LoginGuard} from "./guard/login.guard";
 import {UnSaveGuard} from "./guard/unSave.guard";
 import {BingdingComponent} from "./bingding/bingding.component";
+import {BindComponent} from "./bind/bind.component";
+import {FormComponent} from "./form/form.component";
+import {LifeCycleComponent} from "./life-cycle/life-cycle.component";
 // import {ResolveGuard} from "./guard/resolve.guard";
 
 /* const 常量，不能更改值，但在{}时，能更改值，是因为const指向的地址相同，当{}里面的属性更改时，地址没有更改，还是可以使用*/
-
+//angular生命周期
 const routes : Routes = [
     {
         path:'',
@@ -75,10 +78,23 @@ const routes : Routes = [
         component:BingdingComponent
       },
       {
+        path:"obs",
+        component:BindComponent
+      },
+      {
+        path:'form',
+        component:FormComponent
+      },
+      {
+        path:'liveCycle',
+        component:LifeCycleComponent
+      },
+      {
         path:"**",
         component:HomeComponent
 
       },
+
 
 
     //   {

@@ -23,5 +23,5 @@ export class ParamsDetailComponent implements OnInit {
     });
     console.log(this.routerInfo.snapshot.queryParams["Pid"])//使用queryParams Url地址栏携带参数
   }
-
+//响应式编程 异步数据编程 任何数据都能做数据流
 }

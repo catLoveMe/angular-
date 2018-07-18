@@ -18,20 +18,33 @@ import { ProTowComponent } from './DI/pro-tow/pro-tow.component';
 import {ProductService} from "./DI/shared/product.service";
 import {logger} from "codelyzer/util/logger";
 import {LoggerService} from "./DI/shared/logger.service";
+import { BindComponent } from './bind/bind.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { MulitplePipe } from './pipe/mulitple.pipe';
+import {FormComponent} from "./form/form.component";
+import { LifeCycleComponent } from './life-cycle/life-cycle.component';
+import { ChangesComponent } from './life-cycle/changes/changes.component';
+
 
 
 
 
 @NgModule({
    declarations: [
-      //可声明对象表，属于本模块的组件指令管道\n
+      //可声明对象表，属于本模块的组件指令管道,管道跟组件一起要声明
       AppComponent,
       ParChildComponent,
       ParamsDetailComponent,
       BingdingComponent,
       ProOneComponent,
-      ProTowComponent ,HomeComponent,
-      ParamsComponent
+      ProTowComponent,
+      BindComponent,
+      MulitplePipe ,//注册管,
+     LifeCycleComponent,
+     ChangesComponent,
+      HomeComponent,
+      ParamsComponent,
+     FormComponent
    ],
    imports: [
       BrowserModule,
@@ -39,7 +52,9 @@ import {LoggerService} from "./DI/shared/logger.service";
       HeaderModule,
       HomeModule,
       ProductModule,
-      UserModule
+      UserModule,
+     FormsModule,
+     ReactiveFormsModule//响应式编程的基础依赖包
    ],
    providers: [
        AuthService,

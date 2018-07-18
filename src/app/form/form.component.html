@@ -1,0 +1,58 @@
+<p>
+  form works!
+</p>
+<!--require pattern 后正则自定义消息-->
+<!--<form action="">-->
+  <!--<div>用户名：<input type="text" required pattern="[a-zA-Z0-9]+"></div>-->
+  <!--<div>密码：<input type="password" ></div>-->
+  <!--<div>确认密码：<input type="password"></div>-->
+ <!--<button></button>-->
+<!--</form>-->
+<!--自己独立的校验规则，提示校验信息-->
+<!--模板表单 可用模板属性 #username模板变量-->
+<form #registerFrom="ngForm" (submit)="onSubmit(registerFrom.value)">
+  <input type="text" ngModel name="username">
+  <div ngModelGroup="userPass">
+    <input type="password" ngModel name="password">
+    <input type="password" ngModel name="rePassWord">
+  </div>
+
+  <button type="submit">点击</button>
+</form>
+<!--json为ng提供的将对象转化成json字符串的模板-->
+<div>{{registerFrom.value | json}}</div>
+<!--============================================响应式表单-->
+<!--响应式表单依赖reactiveModel 三种样式 FormGroup FromControl FromArray-->
+<!---->
+<form [formGroup]="fromData" (submit)="getSubData()">
+  <input type="text" formControlName="account">
+  <p [hidden] = '!fromData.hasError("minlength","account")'>最小长度为3</p>
+  <input type="text" formControlName="userName">
+  <p [hidden]="!fromData.hasError('mobile','userName')">账号不能为空</p>
+  <!--<div formGroupName="daterange">-->
+    <!--<input type="date" formControlName="from">-->
+    <!--<input type="date" formControlName="to">-->
+  <!--</div>-->
+  <div formGroupName="pass">
+    <!--hasError 参数，第一个是要校验key值，和需要校验的字段，当其需要校验的字段在组别中时，需要在第二个位置传入数组，分布为组别和其在组别中的字段名-->
+    <input type="password" formControlName="password">
+      <p [hidden] = "!fromData.hasError('minlength',['pass','password'])">密码最小长度6</p>
+    <input type="password" formControlName="passConfirm">
+  </div>
+  <div [hidden] = "!fromData.hasError('passEqual','pass')">
+    两次密码不相同
+  </div>
+  <div formArrayName="emils">
+    <ul>
+      <li *ngFor="let item of this.fromData.get('emils').controls;let i = index;">
+        <input type="email" [formControlName]="i">
+      </li>
+    </ul>
+
+  </div>
+  <div [hidden]="!fromData.getError('passEqual','pass')">
+    {{fromData.getError('passEqual','pass')?.describute}}
+  </div>
+  {{fromData.status}}
+  <button type="submit">点击保存</button>
+</form>
