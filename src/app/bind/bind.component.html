@@ -8,4 +8,21 @@
 <!--number 小数点前面的数字保留几位，小数点后面的2-2代表保留两位数字最少2位小数-->
 <p>圆周率是{{p1 | number:'1.2-2'}}</p>
 <p>试试自己写得管道{{size | mulitple:2}}</p>
+<div contenteditable="true">可以编辑里面的内容</div>   
+
+<table>
+    <tr>
+        <th>index</th>
+        <th (click)="changeOrder('one')">one</th>
+        <th (click)="changeOrder('tow')">tow</th>
+        <th (click)="changeOrder('three')">three</th>
+
+    </tr>
+    <tr *ngFor="let item of tableData | OrderBy:[orderKey] ; let i = index;">
+        <td>{{i+1}}</td>
+        <td>{{item.one}}</td>
+        <td>{{item.tow}}</td>
+        <td>{{item.three}}</td>
+    </tr>
+</table>
 

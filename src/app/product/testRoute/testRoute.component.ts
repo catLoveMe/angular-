@@ -23,7 +23,7 @@ export class TestRouteComponent implements OnInit {
     protected activatedRoute : ActivatedRoute,
     public authService:AuthService,
     @Host() @Inject(forwardRef(() => ProductComponent)) app: ProductComponent
-  ) { 
+  ) {
     setInterval(()=>{
       this.changeIndex.emit(++this.index); //emit触发该事件
     },1000)
@@ -38,9 +38,9 @@ export class TestRouteComponent implements OnInit {
 
   ngOnInit() {
     // 使用queryParams的传参
-    this.activatedRoute.queryParams.subscribe((queryParams) =>{
-      this.params = queryParams.id;
-    })
+    // this.activatedRoute.queryParams.subscribe((queryParams) =>{
+    //   this.params = queryParams.id;
+    // })
   // console.log(this.content)
   }
 

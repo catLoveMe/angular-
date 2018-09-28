@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from "@angular/forms";
 import {Observable} from "rxjs";
-// import { from } from 'rxjs/observable/from';
+import { from } from 'rxjs/internal/observable/from';
 
 @Component({
   selector: 'app-bind',
@@ -13,6 +13,8 @@ export class BindComponent implements OnInit {
   seachInout : FormControl = new FormControl();//formControl
   p1:number = 3.1415926;
   size:number = 7;
+  tableData :Array<Object> = [];
+  orderKey: string = 'one';
   constructor() {
     //observable 可观察者队形 以流的形式 ，表示一组或者事件的集合
     //观察者 Observer 一个回调函数集合 监听Observable发送的值 集合
@@ -27,22 +29,33 @@ export class BindComponent implements OnInit {
     //     err => console.error(err),//容错处理机制
     //     () => console.log("结束了")//程序结束之后
     //   );
-    //订阅seachInout
+    //订阅seachInout 订阅参数
     // this.seachInout.valueChanges
     //.debounceTime(500)//延时保存
     //   .subscribe( stockCode => this.onkeyup(stockCode))
 
+    this.tableData = [
+        {one:1,tow:1,three:3},
+        {one:4,tow:9,three:4},
+        {one:2,tow:1,three:8},
+        {one:8,tow:4,three:1},
 
+    ]
   }
 
   ngOnInit() {
 
   }
+  changeOrder(val){
+      this.orderKey = val;
+  }
   onkey(event){
     console.log(event.target.value)
   }
   onkeyup(value:string){
-    console.log(value)
+    console.log(value);
+    //
+    console.log(value, 'value')
   }
 
 }

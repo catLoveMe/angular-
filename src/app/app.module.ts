@@ -24,6 +24,9 @@ import { MulitplePipe } from './pipe/mulitple.pipe';
 import {FormComponent} from "./form/form.component";
 import { LifeCycleComponent } from './life-cycle/life-cycle.component';
 import { ChangesComponent } from './life-cycle/changes/changes.component';
+import {RouterModule} from "@angular/router";
+import {CommonModule} from "@angular/common";
+import { OrderPipe } from './pipe/order.pipe';
 
 
 
@@ -44,11 +47,13 @@ import { ChangesComponent } from './life-cycle/changes/changes.component';
      ChangesComponent,
       HomeComponent,
       ParamsComponent,
-     FormComponent
+     FormComponent,
+     OrderPipe
    ],
    imports: [
       BrowserModule,
       AppRouter,
+     CommonModule,
       HeaderModule,
       HomeModule,
       ProductModule,

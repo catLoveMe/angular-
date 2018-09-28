@@ -10,6 +10,21 @@
     <button (click) = 'navigate()' [hidden] = '!isShow'>navigate传参方式</button>
     <p>获取儿子传过来的参数：{{mess}}</p>
 
+    <table>
+        <th>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+
+            </tr>
+        </th>
+    </table>
+
     <app-testRoute [content] = 'arr' (changeIndex) = 'getChildIndex($event)'></app-testRoute>
+
+
+
+
   
 

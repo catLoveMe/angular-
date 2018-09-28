@@ -48,6 +48,10 @@ const routes : Routes = [
         ]
     },
     {
+      path: 'child',
+      loadChildren: './children/children-routing.module#ChildrenModule',
+    },
+    {
         path:'product',
         component:ProductComponent,
 
@@ -75,32 +79,29 @@ const routes : Routes = [
       },
       {
         path:"bind",
-        component:BingdingComponent
+        component:BingdingComponent,
       },
       {
         path:"obs",
-        component:BindComponent
+        component:BindComponent,
       },
       {
         path:'form',
-        component:FormComponent
+        component:FormComponent,
       },
       {
         path:'liveCycle',
-        component:LifeCycleComponent
+        component:LifeCycleComponent,
       },
       {
         path:"**",
-        component:HomeComponent
+        component:HomeComponent,
 
       },
 
 
 
-    //   {
-    //       path: 'user',
-    //       loadChildren: 'app/user/user.module#UserModule'
-    // }
+
 ]
 
 /*模块,由跟模块与各种特性模块构成,组件定义视图，使用服务,组件和服务都是简单的类，使用类的装饰器来标出其类型*/
