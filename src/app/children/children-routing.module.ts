@@ -2,9 +2,10 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from '@angular/router';
 import {ChildrenOneComponent} from "./children-one/children-one.component";
 import {ChildrenTowComponent} from "./children-tow/children-tow.component";
-import {BrowserModule} from "@angular/platform-browser";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { CommonModule } from "@angular/common";
+// 
 
 
 
@@ -30,7 +31,7 @@ const childrenRouters : Routes = [
 @NgModule({
     imports:[
         RouterModule.forChild(childrenRouters),
-        BrowserModule,
+        CommonModule,
         BrowserAnimationsModule
 
     ],

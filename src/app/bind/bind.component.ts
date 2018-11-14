@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from "@angular/forms";
 import {Observable} from "rxjs";
-import { from } from 'rxjs/internal/observable/from';
+import { fromPromise } from 'rxjs/internal/observable/fromPromise'
+// import { from } from 'rxjs/internal/observable/from';
 
 @Component({
   selector: 'app-bind',

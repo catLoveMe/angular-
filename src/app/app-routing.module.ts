@@ -7,7 +7,7 @@ import { Tab1Component } from "./home/tab1/tab1.component";
 import { Tab2Component } from "./home/tab2/tab2.component";
 import { ProDetailComponent } from "./product/pro-detail/pro-detail.component";
 import { TestRouteComponent } from "./product/testRoute/testRoute.component";
-import { BrowserModule } from "@angular/platform-browser";
+// import { BrowserModule } from "@angular/platform-browser";
 import { ParamsComponent } from "./params/params.component";
 import {ParamsDetailComponent} from "./params/params-detail/params-detail.component";
 import {HomeComponent} from "./home/home.component";
@@ -17,6 +17,7 @@ import {BingdingComponent} from "./bingding/bingding.component";
 import {BindComponent} from "./bind/bind.component";
 import {FormComponent} from "./form/form.component";
 import {LifeCycleComponent} from "./life-cycle/life-cycle.component";
+import { CommonModule } from "@angular/common";
 // import {ResolveGuard} from "./guard/resolve.guard";
 
 /* const 常量，不能更改值，但在{}时，能更改值，是因为const指向的地址相同，当{}里面的属性更改时，地址没有更改，还是可以使用*/
@@ -108,7 +109,7 @@ const routes : Routes = [
 @NgModule({
     imports:[
         RouterModule.forRoot(routes),
-        BrowserModule
+        CommonModule
     ],
     exports: [ RouterModule ]
 })
