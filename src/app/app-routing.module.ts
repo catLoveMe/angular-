@@ -1,3 +1,4 @@
+import { FaderAnimComponent } from './animations/fader-anim/fader-anim.component';
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from '@angular/router';
 
@@ -28,6 +29,11 @@ const routes : Routes = [
         redirectTo:'home',
         pathMatch:'full'
     },
+    {
+        path:'fade',
+        component: FaderAnimComponent
+    },
+ 
     {
         path:'home',
         component:HomeComponent,

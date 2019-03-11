@@ -29,6 +29,7 @@ export class TestRouteComponent implements OnInit {
     },1000)
     app.example = "你好，儿子篡改一下父亲的数据"
     console.log(app.example)
+    // subscribe 订阅authServerice中发射的change数据
     this.authService.change.subscribe((value:number)=>{
       // console.log(value,"==========value")
   })

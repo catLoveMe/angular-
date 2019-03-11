@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -27,6 +28,7 @@ import { ChangesComponent } from './life-cycle/changes/changes.component';
 import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { OrderPipe } from './pipe/order.pipe';
+import { FaderAnimComponent } from './animations/fader-anim/fader-anim.component';
 
 
 
@@ -48,6 +50,7 @@ import { OrderPipe } from './pipe/order.pipe';
         HomeComponent,
         ParamsComponent,
         FormComponent,
+        FaderAnimComponent,
         OrderPipe,
     ],
     imports: [
@@ -59,6 +62,7 @@ import { OrderPipe } from './pipe/order.pipe';
         ProductModule,
         UserModule,
         FormsModule,
+        BrowserAnimationsModule,
         ReactiveFormsModule//响应式编程的基础依赖包
     ],
     providers: [

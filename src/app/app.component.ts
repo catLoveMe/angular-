@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   // title = 'angular 重新整理学习';
+  getCode():void{
+      console.log(' 0000')
+  }
 }
